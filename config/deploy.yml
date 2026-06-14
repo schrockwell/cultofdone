@@ -1,0 +1,26 @@
+service: cultofdone
+
+image: schrockwell/cultofdone
+
+retain_containers: 1
+
+servers:
+  web:
+    - kamal.schrockwell.com
+
+proxy:
+  ssl: true
+  ssl_redirect: false # allow HTTP
+  hosts:
+    - cultofdone.schrockwell.com
+    - cultofdone.org
+    - www.cultofdone.org
+  app_port: 3000
+  healthcheck:
+    path: /
+
+registry:
+  server: localhost:5555
+
+builder:
+  arch: amd64
