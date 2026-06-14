@@ -18,14 +18,43 @@
             padding: 1rem;
         }
 
-        main ol {
+        ol {
             padding-left: 1.5rem;
         }
 
-        main ol li {
-            margin-bottom: 1rem;
+        li {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        li.highlight {
+            text-decoration: underline;
+            background-color: #f0f0f0;
         }
     </style>
+    <script>
+        function updateHighlight() {
+            const number = parseInt(window.location.hash.substring(1));
+            const items = document.querySelectorAll('main ol li');
+            items.forEach((item, index) => {
+                if (index + 1 === number) {
+                    item.classList.add('highlight');
+                } else {
+                    item.classList.remove('highlight');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            updateHighlight();
+            window.addEventListener('hashchange', updateHighlight);
+            document.querySelectorAll('main ol li').forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    window.location.hash = index + 1;
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
