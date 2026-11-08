@@ -1,4 +1,6 @@
-=== The Cult of Done Manifesto ===
+The Cult of Done Manifesto
+==========================
+
 By Bre Pettis and Kio Stark
 
  1. There are three states of being. Not knowing, action and completion.
